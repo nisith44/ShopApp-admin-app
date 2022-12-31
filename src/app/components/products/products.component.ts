@@ -1,4 +1,5 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { ProductService } from 'src/app/services/product.service';
 
 @Component({
   selector: 'app-products',
@@ -6,16 +7,30 @@ import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
   styleUrls: ['./products.component.scss'],
 })
 export class ProductsComponent implements OnInit {
-  @ViewChild('dataTable') dataTable!: ElementRef;
+  products=[ ];
+  page=1
 
-  constructor() { }
+  constructor(private productService:ProductService) { }
 
   ngOnInit() {
+    this.getProducts();
   }
 
-  ngAfterViewInit(){
-    this.dataTable.nativeElement.DataTable();
-
+  changePage(e){
+    this.page=e.page
+    this.getProducts();
   }
+
+  getProducts(){
+    let body={
+      page:this.page,
+      limit:20
+    }
+    this.productService.getProducts(body).subscribe((res:any)=>{
+      console.log(res);
+      this.products=res.output.products
+    })
+  }
+
 
 }

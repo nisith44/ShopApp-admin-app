@@ -1,0 +1,32 @@
+<nav aria-label="...">
+  <ul class="pagination">
+
+    <li  class="page-item hand" (click)="pageClick(page-1)">
+      <button [disabled]="page-1<1" class="page-link">Previous</button>
+    </li>
+
+    <li *ngIf="page-2>0" class="page-item hand" (click)="pageClick(page-2)">
+      <button class="page-link" >{{page-2}}</button>
+    </li>
+
+    <li *ngIf="page-1>0" class="page-item hand"  (click)="pageClick(page-1)">
+      <button class="page-link" >{{page-1}}</button>
+    </li>
+
+    <li class="page-item hand active" (click)="pageClick(page)">
+      <button class="page-link" >{{page}}</button>
+    </li>
+
+    <li class="page-item hand" (click)="pageClick(page+1)">
+      <button class="page-link" >{{page+1}}</button>
+    </li>
+
+    <li class="page-item hand" (click)="pageClick(page+2)">
+      <button class="page-link" >{{page+2}}</button>
+    </li>
+
+    <li class="page-item hand" (click)="pageClick(page+1)">
+      <button class="page-link" >Next</button>
+    </li>
+  </ul>
+</nav>
