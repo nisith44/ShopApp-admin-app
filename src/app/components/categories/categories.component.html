@@ -1,5 +1,5 @@
 <!-- Page Heading -->
-<h1 class="h3 mb-2 text-gray-800">Products</h1>
+<h1 class="h3 mb-2 text-gray-800">Categories</h1>
 
 
 <!-- DataTales Example -->
@@ -19,7 +19,7 @@
         </div>
       </form>
 
-      <button (click)="addProduct()" style="float: right;" class="btn btn-primary">Add Product</button>
+      <button (click)="addCategory()" style="float: right;" class="btn btn-primary">Add Category</button>
     </div>
     <div class="card-body">
         <div class="table-responsive">
@@ -27,30 +27,22 @@
                 <thead>
                   <tr>
                     <th scope="col">#</th>
-                    <th scope="col">Title</th>
-                    <th scope="col">Description</th>
-                    <th scope="col">Price</th>
                     <th scope="col">Category</th>
                     <th scope="col" style="width: 170px;">Action</th>
                   </tr>
                 </thead>
                 <tbody>
-                  <tr *ngFor="let product of products">
-                    <th scope="row">{{product.product_id}}</th>
-                    <td>{{product.title}}</td>
-                    <td>{{product.description}}</td>
-                    <td>{{product.price}}</td>
-                    <td>{{product.category}}</td>
+                  <tr *ngFor="let cat of categories">
+                    <th scope="row">{{cat.category_id}}</th>
+                    <td>{{cat.name}}</td>
                     <td>
-                      <button (click)="editProduct(product)" type="button" class="btn btn-link">Edit</button>
-                      <button (click)="deleteProduct(product)" type="button" class="btn btn-link">Delete</button>
+                      <button (click)="deleteCategory(cat)" type="button" class="btn btn-link">Delete</button>
                     </td>
                   </tr>
                   
                 </tbody>
               </table>
 
-              <app-pagination (changePage)="changePage($event)"></app-pagination>
 
         </div>
     </div>

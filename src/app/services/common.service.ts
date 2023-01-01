@@ -42,7 +42,11 @@ export class CommonService {
   }
 
   hideLoading(){
-    this.loading.dismiss()
-    this.loading=null
+    if(this.loading){
+      this.loading.dismiss()
+      this.loading=null
+    }
   }
+
+  
 }

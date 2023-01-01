@@ -1,0 +1,102 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Edit Product</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="close()">
+        <ion-icon slot="icon-only" name="close"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="main-box">
+
+    <form [formGroup]="productForm" (ngSubmit)="submit()" autocomplete="off">
+      <div class="form-floating mb-3">
+        <input formControlName="title" type="text" class="form-control" id="floatingInput1" placeholder="name@example.com">
+        <label for="floatingInput1">Title</label>
+      </div>
+  
+      <div class="form-floating mb-3">
+        <input formControlName="description" type="text" class="form-control" id="floatingInput2" placeholder="name@example.com">
+        <label for="floatingInput2">Description</label>
+      </div>
+  
+      <div class="form-floating mb-3">
+        <input formControlName="category" type="text" class="form-control" id="floatingInput3" list="datalistOptions" placeholder="name@example.com">
+        <label for="floatingInput3">Category</label>    
+        <datalist id="datalistOptions">
+          <option *ngFor="let c of categories" [value]="c.name">
+        </datalist>
+      </div>
+  
+      <div class="form-floating mb-3">
+        <input formControlName="price" type="text" class="form-control" id="floatingInput4" placeholder="Price">
+        <label for="floatingInput4">Price</label>
+      </div>
+  
+      <div class="mb-3">
+        <label for="formFile" class="form-label">Product Image</label>
+        <input (change)="imgChange($event)" class="form-control" type="file" id="formFile">
+      </div>
+  
+      <img *ngIf="img" [src]="img" class="border border-3 rounded" alt="..." style="width: 150px;">
+      <br>
+
+      
+
+    </form>
+
+    <ion-item class="ion-no-padding">
+      <ion-label>Product Variations</ion-label>
+      <ion-toggle [(ngModel)]="isVariations"  slot="end"></ion-toggle>
+    </ion-item><br>
+
+    <div *ngIf="isVariations">
+      <div class="form-floating mb-3">
+        <input [(ngModel)]="variationName" type="text" class="form-control" id="floatingInput5" placeholder="Price">
+        <label for="floatingInput5">Variation Name</label>
+      </div>
+
+
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Type</th>
+            <th scope="col">Price</th>
+          </tr>
+        </thead>
+        <thead>
+          <tr>
+            <th scope="col">
+              <button (click)="addvariation()" class="btn btn-primary">Add</button>
+            </th>
+            <th scope="col">
+                <input [(ngModel)]="variationType" type="text" class="form-control" id="floatingInput6" placeholder="Type">
+            </th>
+            <th scope="col">
+                <input [(ngModel)]="variationPrice" type="text" class="form-control" id="floatingInput7" placeholder="Price">
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let v of variations;let i=index">
+            <th><button (click)="removeVariation(i)" class="btn btn-danger">Remove</button></th>
+            <td>{{v.value}}</td>
+            <td>{{v.price}}</td>
+          </tr>
+          
+        </tbody>
+      </table>
+
+    </div>
+    <br>
+    <button (click)="submit()" class="btn btn-primary" >Submit</button>
+
+    
+
+  </div>
+  
+</ion-content>

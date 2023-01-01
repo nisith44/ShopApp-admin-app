@@ -1,0 +1,27 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Add Category</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="close()">
+        <ion-icon slot="icon-only" name="close"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="main-box">
+
+    <form [formGroup]="categoryForm" (ngSubmit)="submit()" autocomplete="off">
+      <div class="form-floating mb-3">
+        <input formControlName="name" type="text" class="form-control" id="floatingInput1" placeholder="name@example.com">
+        <label for="floatingInput1">Category Name</label>
+      </div>      
+
+      <button type="submit" class="btn btn-primary" >Submit</button>
+
+    </form>
+    
+  </div>
+  
+</ion-content>
