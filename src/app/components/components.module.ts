@@ -9,11 +9,12 @@ import { EditProductComponent } from '../popups/edit-product/edit-product.compon
 import { CategoriesComponent } from './categories/categories.component';
 import { PaginationComponent } from './common/pagination/pagination.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { OrdersComponent } from './orders/orders.component';
 import { ProductsComponent } from './products/products.component';
 
 const components=[
    ProductsComponent,DashboardComponent,PaginationComponent,AddProductComponent,EditProductComponent,
-   CategoriesComponent,AddCategoryComponent
+   CategoriesComponent,AddCategoryComponent,OrdersComponent
 ]
 
 

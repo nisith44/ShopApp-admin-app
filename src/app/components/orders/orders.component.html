@@ -1,0 +1,60 @@
+<!-- Page Heading -->
+<h1 class="h3 mb-2 text-gray-800">Orders</h1>
+
+
+<!-- DataTales Example -->
+<div class="card shadow mb-4">
+    <div class="card-header py-3">
+      <!-- <h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6> -->
+    
+      <form class="form-inline mr-auto navbar-search" style="float: left;">
+        <div class="input-group">
+          <input type="text" class="form-control border-1 small" placeholder="Search Title" aria-label="Search"
+            aria-describedby="basic-addon2">
+          <div class="input-group-append">
+            <button class="btn btn-primary" type="button">
+              <i class="fas fa-search fa-sm"></i>
+            </button>
+          </div>
+        </div>
+      </form>
+
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered">
+                <thead>
+                  <tr>
+                    <th scope="col">Order #</th>
+                    <th scope="col">User ID</th>
+                    <th scope="col">Date Time</th>
+                    <th scope="col">Products</th>
+                    <th scope="col">Price</th>
+                    <th scope="col">Address</th>
+                    <th scope="col" style="width: 170px;">Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let order of orders">
+                    <th scope="row">{{order.order_id}}</th>
+                    <td>{{order.user_id}}</td>
+                    <td>{{order.created_at | date:'MMM d, y, h:mm a'}}</td>
+                    <td>
+                      <p style="margin: 0;" *ngFor="let p of order.products">{{p.name+" X "+p.qty}}</p>
+                    </td>
+                    <td>{{order.total}}</td>
+                    <td>{{order.address}}</td>
+                    <td>
+                      <button (click)="editProduct(order)" type="button" class="btn btn-link">Edit</button>
+                      <button (click)="deleteProduct(order)" type="button" class="btn btn-link">Delete</button>
+                    </td>
+                  </tr>
+                  
+                </tbody>
+              </table>
+
+              <app-pagination (changePage)="changePage($event)"></app-pagination>
+
+        </div>
+    </div>
+</div>

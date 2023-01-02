@@ -29,7 +29,7 @@ export class CategoriesComponent implements OnInit {
   async addCategory(){
     const modal = await this.modalCtrl.create({
       component: AddCategoryComponent,
-      cssClass:'add-product'
+      cssClass:'add-cat'
     });
     modal.present();  
   }
