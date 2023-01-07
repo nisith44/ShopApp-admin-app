@@ -19,6 +19,15 @@ export class OrderService {
     });
   }
 
+  updateStatus(body:any): Observable<any>{
+    const url=environment.baseUrl+'order/update-status'
+    return this.httpClient.post(url,body,{
+      headers:{
+        Authorization:`Bearer ${sessionStorage.getItem('token')}`
+      }
+    });
+  }
+
 
 
 }

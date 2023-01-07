@@ -4,6 +4,7 @@ import { CategoriesComponent } from '../components/categories/categories.compone
 import { DashboardComponent } from '../components/dashboard/dashboard.component';
 import { OrdersComponent } from '../components/orders/orders.component';
 import { ProductsComponent } from '../components/products/products.component';
+import { PromotionsComponent } from '../components/promotions/promotions.component';
 
 import { HomePage } from './home.page';
 
@@ -15,7 +16,8 @@ const routes: Routes = [
       {path:'dashboard',component:DashboardComponent},
       {path:'products',component:ProductsComponent},
       {path:'categories',component:CategoriesComponent},
-      {path:'orders',component:OrdersComponent}
+      {path:'orders',component:OrdersComponent},
+      {path:'promotions',component:PromotionsComponent},
     ]
   }
 ];

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AlertController, ModalController } from '@ionic/angular';
+import { ViewOrderComponent } from 'src/app/popups/view-order/view-order.component';
 import { CommonService } from 'src/app/services/common.service';
 import { OrderService } from 'src/app/services/order.service';
 
@@ -34,4 +35,17 @@ export class OrdersComponent implements OnInit {
       this.orders=res.output.orders
     })
   }
+
+  async viewOrder(o) {
+    const modal = await this.modalCtrl.create({
+      component: ViewOrderComponent,
+      componentProps:{
+        order:o
+      },
+      cssClass:'view-order'
+    });
+    modal.present();    
+  }
+
+
 }

@@ -1,0 +1,42 @@
+<!-- Page Heading -->
+<h1 class="h3 mb-2 text-gray-800">Promotions</h1>
+
+
+<!-- DataTales Example -->
+<div class="card shadow mb-4">
+    <div class="card-header py-3">    
+      
+
+      <button (click)="addPromotion()" style="float: right;" class="btn btn-primary">Add Promotion</button>
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered">
+                <thead>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Banner</th>
+                    <th scope="col">Is Internal</th>
+                    <th scope="col">URL</th>
+                    <th scope="col" style="width: 170px;">Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let prom of promotions">
+                    <th scope="row">{{prom.id}}</th>
+                    <td><img style="height: 60px;" [src]="prom.banner" alt=""></td>
+                    <td>{{prom.internal_url}}</td>
+                    <td>{{prom.url}}</td>
+                    <td>
+                      <button (click)="editPromotion(prom)" type="button" class="btn btn-link">Edit</button>
+                      <button (click)="deletePromotion(prom)" type="button" class="btn btn-link">Delete</button>
+                    </td>
+                  </tr>
+                  
+                </tbody>
+              </table>
+
+
+        </div>
+    </div>
+</div>

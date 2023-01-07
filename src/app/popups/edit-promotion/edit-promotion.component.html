@@ -1,0 +1,47 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Add Promotion</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="close()">
+        <ion-icon slot="icon-only" name="close"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="main-box">
+
+    <div class="mb-3">
+      <label for="formFile" class="form-label">Banner Image</label>
+      <input (change)="imgChange($event)" class="form-control" type="file" id="formFile">
+    </div>
+
+    <div *ngIf="img">
+      <img  [src]="img" class="border border-3 rounded" alt="..." style="width: 150px;"> <br> <br>
+    </div>
+
+
+    <form [formGroup]="promotionForm" (ngSubmit)="submit()" autocomplete="off">
+
+      <div class="form-floating mb-3">
+        <input formControlName="url" type="text" class="form-control" id="floatingInput1" placeholder="">
+        <label for="floatingInput1">URL</label>
+      </div>
+
+      <div class="form-floating mb-3">
+        <select formControlName="internal_url" class="form-select" aria-label="Default select example" id="floatingInput2" placeholder="">
+          <option value="1">Yes</option>
+          <option value="0">No</option>
+        </select>
+        <label for="floatingInput2">Is Internal</label>
+      </div>
+      <br>
+
+      <button type="submit" class="btn btn-primary" >Submit</button>
+
+    </form>
+
+  </div>
+  
+</ion-content>

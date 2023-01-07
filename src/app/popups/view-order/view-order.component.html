@@ -1,0 +1,52 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Order Details</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="close()">
+        <ion-icon slot="icon-only" name="close"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="main-box">
+    <div class="row">
+      <div class="col-md-6 p-3">
+        <h3 style="margin: 0;">Products</h3> <br>
+        <ion-item class="ion-no-padding" *ngFor="let p of order.products;let i=index">
+          <ion-label>{{p.name}}</ion-label>
+          <ion-label slot="end">{{p.qty}}x ${{p.price}}=${{p.total}}</ion-label>
+        </ion-item>
+        <ion-item class="ion-no-padding" >
+          <ion-label><b>Total</b></ion-label>
+          <ion-label slot="end"><b>$ {{order.total}}</b></ion-label>
+        </ion-item>
+      </div>
+  
+      <div class="col-md-6 p-3">
+        <label >Status: </label> 
+        <ion-chip *ngIf="order.status=='Pending'" color="warning">Pending</ion-chip>
+        <ion-chip *ngIf="order.status=='Delivered'" color="success">Delivered</ion-chip>
+        <ion-chip *ngIf="order.status=='Delivering'" color="tertiary">Delivering</ion-chip>
+        <br>
+        <label >User: {{order.user_name}}</label> <br>
+        <label >Date Time: {{order.created_at}}</label> <br>
+        <label >Payment Type: {{order.payType}}</label>
+        <div class="form-group">
+          <label for="exampleFormControlTextarea1">Address:</label>
+          <textarea [value]="order.address" class="form-control" id="exampleFormControlTextarea1" rows="6"></textarea>
+        </div>
+
+        <select [(ngModel)]="order.status" (change)="statusChange($event)" class="form-select" aria-label="Default select example">
+          <option value="Pending">Pending</option>
+          <option value="Delivering">Delivering</option>
+          <option value="Delivered">Delivered</option>
+        </select>
+      </div>
+    </div>
+    
+    
+  </div>
+  
+</ion-content>
