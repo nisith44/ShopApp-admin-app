@@ -25,6 +25,7 @@ export class InterceptorService implements HttpInterceptor{
           this.router.navigate(['/login'])
         }
         if (error.status === 0) {
+          console.log("no internet");
         }
         
         return throwError(error);

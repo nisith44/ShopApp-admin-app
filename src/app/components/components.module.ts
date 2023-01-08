@@ -9,9 +9,12 @@ import { AddPromotionComponent } from '../popups/add-promotion/add-promotion.com
 import { EditProductComponent } from '../popups/edit-product/edit-product.component';
 import { EditPromotionComponent } from '../popups/edit-promotion/edit-promotion.component';
 import { ViewOrderComponent } from '../popups/view-order/view-order.component';
+import { AdminsComponent } from './admins/admins.component';
 import { CategoriesComponent } from './categories/categories.component';
 import { PaginationComponent } from './common/pagination/pagination.component';
+import { CustomersComponent } from './customers/customers.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { DriversComponent } from './drivers/drivers.component';
 import { OrdersComponent } from './orders/orders.component';
 import { ProductsComponent } from './products/products.component';
 import { PromotionsComponent } from './promotions/promotions.component';
@@ -19,7 +22,7 @@ import { PromotionsComponent } from './promotions/promotions.component';
 const components=[
    ProductsComponent,DashboardComponent,PaginationComponent,AddProductComponent,EditProductComponent,
    CategoriesComponent,AddCategoryComponent,OrdersComponent,ViewOrderComponent,PromotionsComponent,
-   AddPromotionComponent,EditPromotionComponent
+   AddPromotionComponent,EditPromotionComponent,DriversComponent,CustomersComponent,AdminsComponent
 ]
 
 

@@ -4,6 +4,9 @@
         font-size: 28px;
         vertical-align: middle;
     }
+    svg{
+        width: 28px;height: auto;
+    }
     span{
         font-size: 15px;
         vertical-align: middle;
@@ -13,4 +16,8 @@
 
 .active{
     background: #6c8def;
+}
+
+.sidebar-divider{
+    color: white;
 }

@@ -1,0 +1,40 @@
+<!-- Page Heading -->
+<h1 class="h3 mb-2 text-gray-800">Drivers</h1>
+
+
+<!-- DataTales Example -->
+<div class="card shadow mb-4">
+    <div class="card-header py-3">
+      <button (click)="addUser()" style="float: right;" class="btn btn-primary">Add Driver</button>
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered">
+                <thead>
+                  <tr>
+                    <th scope="col">User ID</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Address</th>
+                    <th scope="col">Phone</th>
+                    <th scope="col" style="width: 170px;">Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let u of users">
+                    <th scope="row">{{u.id}}</th>
+                    <td>{{u.name}}</td>
+                    <td>{{u.email}}</td>
+                    <td>{{u.address}}</td>
+                    <td>{{u.phone}}</td>
+                    <td>
+                      <button (click)="editUser(cat)" type="button" class="btn btn-link">Edit</button>
+                      <button (click)="deleteUser(cat)" type="button" class="btn btn-link">Delete</button>
+                    </td>
+                  </tr>
+                  
+                </tbody>
+              </table>
+        </div>
+    </div>
+</div>

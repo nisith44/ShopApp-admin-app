@@ -12,6 +12,7 @@ import { OrderService } from 'src/app/services/order.service';
 export class DashboardComponent implements OnInit {
   dashboardData: any;
   todayEarnings=0
+  monthEarnings: number;
 
   constructor(private orderService:OrderService,private modalCtrl:ModalController,private alertController: AlertController,
     private commonService: CommonService) { }
@@ -28,6 +29,11 @@ export class DashboardComponent implements OnInit {
       this.todayEarnings=0
       this.dashboardData.todayOrders.forEach(order => {
         this.todayEarnings=this.todayEarnings+order.total
+      });
+
+      this.monthEarnings=0
+      this.dashboardData.monthOrders.forEach(order => {
+        this.monthEarnings=this.monthEarnings+order.total
       });
     })
   }

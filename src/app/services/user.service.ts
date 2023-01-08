@@ -26,4 +26,13 @@ export class UserService {
   }
 
 
+  getAllUsers(body:any): Observable<any>{
+    const url=environment.baseUrl+'user/get-all-users'
+    return this.httpClient.post(url,body,{
+      headers:{
+        Authorization:`Bearer ${sessionStorage.getItem('token')}`
+      }
+    });
+  }
+
 }
