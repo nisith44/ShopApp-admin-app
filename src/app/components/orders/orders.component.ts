@@ -12,6 +12,7 @@ import { OrderService } from 'src/app/services/order.service';
 export class OrdersComponent implements OnInit {
   page=1;
   orders=[];
+  customerName=''
 
   constructor(private orderService:OrderService,private modalCtrl:ModalController,private alertController: AlertController,
     private commonService: CommonService) { }
@@ -23,6 +24,19 @@ export class OrdersComponent implements OnInit {
   changePage(e){
     this.page=e.page
     this.getOrders();
+  }
+
+  search(){
+    this.page=1
+    let body={
+      page:this.page,
+      limit:20,
+      customerName:this.customerName
+    }
+    this.orderService.getOrders(body).subscribe((res:any)=>{
+      console.log(res);
+      this.orders=res.output.orders
+    })
   }
 
   getOrders(){

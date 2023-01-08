@@ -29,5 +29,15 @@ export class OrderService {
   }
 
 
+  getAdminDashboard(): Observable<any>{
+    const url=environment.baseUrl+'order/admin-dashboard'
+    return this.httpClient.get(url,{
+      headers:{
+        Authorization:`Bearer ${sessionStorage.getItem('token')}`
+      }
+    });
+  }
+
+
 
 }

@@ -102,7 +102,9 @@ export class EditProductComponent implements OnInit {
         this.commonService.hideLoading()
         if(res.status=='OK'){
           this.commonService.successToast("Product Updated Successfully");
-          this.close();
+          this.modalCtrl.dismiss({
+            refresh:true
+          })
         }else{
           this.commonService.errorToast("Product Updating Failed")
         }

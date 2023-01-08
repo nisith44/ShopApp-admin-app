@@ -12,7 +12,8 @@ import { ProductService } from 'src/app/services/product.service';
 })
 export class ProductsComponent implements OnInit {
   products=[ ];
-  page=1
+  page=1;
+  title=''
 
   constructor(private productService:ProductService,private modalCtrl:ModalController,private alertController: AlertController,
     private commonService: CommonService) { }
@@ -25,6 +26,20 @@ export class ProductsComponent implements OnInit {
     this.page=e.page
     this.getProducts();
   }
+
+  search(){
+    this.page=1
+    let body={
+      page:this.page,
+      limit:20,
+      title:this.title
+    }
+    this.productService.getProducts(body).subscribe((res:any)=>{
+      console.log(res);
+      this.products=res.output.products
+    })
+  }
+
 
   getProducts(){
     let body={
@@ -53,7 +68,10 @@ export class ProductsComponent implements OnInit {
       },
       cssClass:'add-product'
     });
-    modal.present();    
+    modal.present();   
+    modal.onDidDismiss().then((res:any)=>{
+      if(res.data.refresh){this.getProducts()}
+    }) 
   }
 
   async deleteProduct(p) {
@@ -74,6 +92,7 @@ export class ProductsComponent implements OnInit {
             this.productService.deleteProduct(body).subscribe((res:any)=>{
               this.commonService.hideLoading()
               if(res.status=='OK'){
+                this.getProducts();
                 this.commonService.successToast("Product Deleted Successfully");
               }else{
                 this.commonService.errorToast("Product Deleting Failed")
