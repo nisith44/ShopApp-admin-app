@@ -4,54 +4,54 @@
 
 <!-- DataTales Example -->
 <div class="card shadow mb-4">
-    <div class="card-header py-3">
-      <!-- <h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6> -->
-    
-      <div class="form-inline mr-auto navbar-search" style="float: left;">
-        <div class="input-group">
-          <input [(ngModel)]="title" type="text" class="form-control border-1 small" placeholder="Search Title" aria-label="Search"
-            aria-describedby="basic-addon2">
-          <div class="input-group-append">
-            <button (click)="search()" class="btn btn-primary" type="button">
-              <i class="fas fa-search fa-sm"></i>
-            </button>
-          </div>
+  <div class="card-header py-3">
+    <!-- <h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6> -->
+
+    <div class="form-inline mr-auto navbar-search" style="float: left;">
+      <div class="input-group">
+        <input [(ngModel)]="title" type="text" class="form-control border-1 small" placeholder="Search Title"
+          aria-label="Search" aria-describedby="basic-addon2">
+        <div class="input-group-append">
+          <button (click)="search()" class="btn btn-primary" type="button">
+            <i class="fas fa-search fa-sm"></i>
+          </button>
         </div>
       </div>
-
-      <button (click)="addProduct()" style="float: right;" class="btn btn-primary">Add Product</button>
     </div>
-    <div class="card-body">
-        <div class="table-responsive">
-            <table class="table table-bordered">
-                <thead>
-                  <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">Title</th>
-                    <th scope="col">Description</th>
-                    <th scope="col">Price</th>
-                    <th scope="col">Category</th>
-                    <th scope="col" style="width: 170px;">Action</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr *ngFor="let product of products">
-                    <th scope="row">{{product.product_id}}</th>
-                    <td>{{product.title}}</td>
-                    <td>{{product.description}}</td>
-                    <td>{{product.price}}</td>
-                    <td>{{product.category}}</td>
-                    <td>
-                      <button (click)="editProduct(product)" type="button" class="btn btn-link">Edit</button>
-                      <button (click)="deleteProduct(product)" type="button" class="btn btn-link">Delete</button>
-                    </td>
-                  </tr>
-                  
-                </tbody>
-              </table>
 
-              <app-pagination (changePage)="changePage($event)"></app-pagination>
+    <button (click)="addProduct()" style="float: right;" class="btn btn-primary">Add Product</button>
+  </div>
+  <div class="card-body">
+    <div class="table-responsive">
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Title</th>
+            <th scope="col">Description</th>
+            <th scope="col">Price</th>
+            <th scope="col">Category</th>
+            <th scope="col" style="width: 170px;">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let product of products">
+            <th scope="row">{{product.product_id}}</th>
+            <td>{{product.title}}</td>
+            <td>{{product.description}}</td>
+            <td>{{product.price}}</td>
+            <td>{{product.category}}</td>
+            <td>
+              <button (click)="editProduct(product)" type="button" class="btn btn-link">Edit</button>
+              <button (click)="deleteProduct(product)" type="button" class="btn btn-link">Delete</button>
+            </td>
+          </tr>
 
-        </div>
+        </tbody>
+      </table>
+
+      <app-pagination (changePage)="changePage($event)"></app-pagination>
+
     </div>
+  </div>
 </div>

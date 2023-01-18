@@ -35,4 +35,49 @@ export class UserService {
     });
   }
 
+  addUser(body:any): Observable<any>{
+    const url=environment.baseUrl+'user/add-user'
+    return this.httpClient.post(url,body,{
+      headers:{
+        Authorization:`Bearer ${sessionStorage.getItem('token')}`
+      }
+    });
+  }
+
+  updateUser(body:any): Observable<any>{
+    const url=environment.baseUrl+'user/update-user'
+    return this.httpClient.post(url,body,{
+      headers:{
+        Authorization:`Bearer ${sessionStorage.getItem('token')}`
+      }
+    });
+  }
+
+  deleteUser(body:any): Observable<any>{
+    const url=environment.baseUrl+'user/delete-user'
+    return this.httpClient.post(url,body,{
+      headers:{
+        Authorization:`Bearer ${sessionStorage.getItem('token')}`
+      }
+    });
+  }
+
+  updateAdminAccount(body:any): Observable<any>{
+    const url=environment.baseUrl+'user/update-admin-account'
+    return this.httpClient.post(url,body,{
+      headers:{
+        Authorization:`Bearer ${sessionStorage.getItem('token')}`
+      }
+    });
+  }
+
+  getAllDrivers(): Observable<any>{
+    const url=environment.baseUrl+'user/get-all-drivers'
+    return this.httpClient.get(url,{
+      headers:{
+        Authorization:`Bearer ${sessionStorage.getItem('token')}`
+      }
+    });
+  }
+
 }

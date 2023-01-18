@@ -1,0 +1,58 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Update User</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="close()">
+        <ion-icon slot="icon-only" name="close"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="main-box">
+
+    
+    <form [formGroup]="userForm" (ngSubmit)="submit()" autocomplete="off">
+
+      <div class="form-floating mb-3">
+        <input formControlName="email" type="text" class="form-control" id="floatingInput1" placeholder="text">
+        <label for="floatingInput1">Email</label>
+      </div>
+
+      <!-- <div class="form-floating mb-3">
+        <input formControlName="password" type="password" class="form-control" id="floatingInput2" placeholder="text">
+        <label for="floatingInput2">password</label>
+      </div> -->
+
+      <div class="form-floating mb-3">
+        <input formControlName="name" type="text" class="form-control" id="floatingInput3" placeholder="text">
+        <label for="floatingInput3">Name</label>
+      </div>
+
+      <div class="form-floating mb-3">
+        <select formControlName="role" class="form-select" aria-label="Default select example" id="floatingInput4" placeholder="text">
+          <option value="driver">Driver</option>
+          <option value="admin">Admin</option>
+          <option value="customer">Customer</option>
+        </select>
+        <label for="floatingInput4">Role</label>
+      </div>
+
+      <div class="form-floating mb-3">
+        <textarea formControlName="address" class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
+        <label for="floatingTextarea2">Address</label>
+      </div> 
+
+      <div class="form-floating mb-3">
+        <input formControlName="phone" type="text" class="form-control" id="floatingInput5" placeholder="text">
+        <label for="floatingInput5">Phone</label>
+      </div>
+
+      <button type="submit" class="btn btn-primary" >Submit</button>
+
+    </form>
+
+  </div>
+  
+</ion-content>

@@ -7,6 +7,7 @@ import { DashboardComponent } from '../components/dashboard/dashboard.component'
 import { DriversComponent } from '../components/drivers/drivers.component';
 import { OrdersComponent } from '../components/orders/orders.component';
 import { ProductsComponent } from '../components/products/products.component';
+import { ProfileComponent } from '../components/profile/profile.component';
 import { PromotionsComponent } from '../components/promotions/promotions.component';
 
 import { HomePage } from './home.page';
@@ -24,6 +25,7 @@ const routes: Routes = [
       {path:'drivers',component:DriversComponent},
       {path:'customers',component:CustomersComponent},
       {path:'admins',component:AdminsComponent},
+      {path:'profile',component:ProfileComponent},
     ]
   }
 ];

@@ -42,6 +42,12 @@
           <option value="Pending">Pending</option>
           <option value="Delivering">Delivering</option>
           <option value="Delivered">Delivered</option>
+        </select> <br>
+
+        <label for="">Driver</label>
+        <select (change)="driverChange($event)" class="form-select" aria-label="Default select example">
+          <option value="">Select Driver</option>
+          <option *ngFor="let d of drivers" [value]="d.name">{{d.name}}</option>
         </select>
       </div>
     </div>
