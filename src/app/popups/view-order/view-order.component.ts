@@ -12,14 +12,18 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class ViewOrderComponent implements OnInit {
   @Input() order;
-  drivers=[]
+  drivers=[];
+  driverName:string
 
   constructor(private modalCtrl:ModalController,private orderService:OrderService,
     private commonService: CommonService,private formBuilder:FormBuilder,private userService:UserService) { }
 
   ngOnInit() {
     console.log(this.order);
-    this.getDrivers()
+    this.getDrivers();
+    if(this.order.driverData){
+      this.driverName=this.order.driverData.id
+    }
   }
 
   getDrivers(){
@@ -49,6 +53,33 @@ export class ViewOrderComponent implements OnInit {
     },(err)=>{
       this.commonService.hideLoading()
       this.commonService.errorToast("Order Updating Failed")
+    })
+  }
+
+
+  driverChange(e){
+    console.log(e);
+    let driver=this.drivers.find(m=>m.id==e.target.value);
+    console.log(driver);
+    let body = {
+      id: this.order.order_id,
+      driverData: {
+        id: driver.id,
+        name: driver.name,
+        phone: driver.phone
+      }
+    }
+    this.commonService.showLoading();
+    this.orderService.assignDriverToOrder(body).subscribe((res:any)=>{
+      this.commonService.hideLoading()
+        if(res.status=='OK'){
+          this.commonService.successToast("Driver Assigned Successfully");
+        }else{
+          this.commonService.errorToast("Driver Assigning Failed")
+        }
+    },(err)=>{
+      this.commonService.hideLoading()
+      this.commonService.errorToast("Driver Assigning Failed")
     })
   }
 

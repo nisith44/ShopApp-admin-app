@@ -45,9 +45,9 @@
         </select> <br>
 
         <label for="">Driver</label>
-        <select (change)="driverChange($event)" class="form-select" aria-label="Default select example">
+        <select [(ngModel)]="driverName" (change)="driverChange($event)" class="form-select" aria-label="Default select example">
           <option value="">Select Driver</option>
-          <option *ngFor="let d of drivers" [value]="d.name">{{d.name}}</option>
+          <option *ngFor="let d of drivers" [value]="d.id" >{{d.name}}</option>
         </select>
       </div>
     </div>

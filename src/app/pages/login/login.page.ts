@@ -34,7 +34,7 @@ export class LoginPage implements OnInit {
         this.commonService.hideLoading();
         console.log(res);
         if(res.status=='OK'){
-          this.router.navigate(['home'])
+          this.router.navigate(['home/dashboard'])
           sessionStorage.setItem('token',res.output.token)
           sessionStorage.setItem('userData',JSON.stringify(res.output.userData))
           this.commonService.successToast("Successfully Logged In");

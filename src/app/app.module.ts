@@ -9,6 +9,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ComponentsModule } from './components/components.module';
 import { InterceptorService } from './services/interceptor.service';
+import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 
 @NgModule({
   declarations: [AppComponent],
@@ -18,7 +19,8 @@ import { InterceptorService } from './services/interceptor.service';
       provide: HTTP_INTERCEPTORS,
       useClass: InterceptorService,
       multi: true
-     }
+     },
+     {provide: LocationStrategy, useClass: HashLocationStrategy}
     ],
   bootstrap: [AppComponent], 
 })

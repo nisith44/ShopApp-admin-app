@@ -29,6 +29,16 @@ export class OrderService {
   }
 
 
+  assignDriverToOrder(body:any): Observable<any>{
+    const url=environment.baseUrl+'order/assign-driver-to-order'
+    return this.httpClient.post(url,body,{
+      headers:{
+        Authorization:`Bearer ${sessionStorage.getItem('token')}`
+      }
+    });
+  }
+
+
   getAdminDashboard(): Observable<any>{
     const url=environment.baseUrl+'order/admin-dashboard'
     return this.httpClient.get(url,{
